@@ -1,0 +1,9 @@
+Building Melite
+
+See doc/readme-qt.rst for instructions on building Melite QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Melite.
+
+See doc/build-*.txt for instructions on building Melited,
+the intended-for-services, no-graphical-interface, reference
+implementation of Melite.
