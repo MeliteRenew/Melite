@@ -7,6 +7,10 @@ USE_UPNP:=0
 LINK:=$(CXX)
 ARCH:=$(system lscpu | head -n 1 | awk '{print $2}')
 
+BOOST_INCLUDE_PATH=/root/boost_1_65_1
+BOOST_LIB_PATH=/root/boost_1_65_1/stage/lib
+BOOST_LIB_SUFFIX=-gcc54-mt-s-1_65_1
+
 DEFS=-DBOOST_SPIRIT_THREADSAFE
 
 DEFS += $(addprefix -I,$(CURDIR) $(CURDIR)/obj $(BOOST_INCLUDE_PATH) $(BDB_INCLUDE_PATH) $(OPENSSL_INCLUDE_PATH))
@@ -21,6 +25,8 @@ ifdef STATIC
 	endif
 endif
 
+#LMODE = static 
+#LMODE2 = static
 # for boost 1.37, add -mt to the boost libraries
 LIBS += \
  -Wl,-B$(LMODE) \
@@ -37,7 +43,7 @@ ifndef USE_UPNP
 endif
 ifneq (${USE_UPNP}, -)
 	LIBS += -l miniupnpc
-	DEFS += -DUSE_UPNP=$(USE_UPNP)
+	DEFS += -DUSE_UPNP=$(USE_UPNP) -DSTATICLIB
 endif
 
 LIBS+= \
