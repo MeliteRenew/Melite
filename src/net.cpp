@@ -1232,8 +1232,7 @@ void MapPort()
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
-    {"84.200.210.109", "84.200.210.109"},
-
+    {"104.223.46.139:45010", "104.223.46.139:45010"} // Melite DNS seed
 };
 
 void ThreadDNSAddressSeed(void* parg)
